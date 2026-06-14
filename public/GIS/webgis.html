@@ -125,47 +125,7 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
 /* ── LAYOUT ── */
 .main { margin-top:calc(var(--navbar-h) + var(--nav)); height:calc(100vh - var(--navbar-h) - var(--nav)); display:flex }
 
-/* ── MOBILE / RESPONSIVE ── */
-@media (max-width: 860px) {
-  .navbar-menu {
-    position:absolute; top:100%; left:0; right:0; flex-direction:column;
-    background:#fff; padding:10px 20px; gap:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08); display:none; z-index:2200;
-  }
-  .navbar-menu.open { display:flex; }
-  .hamburger { display:block; }
 
-  .navbar-container { flex-wrap:wrap; padding:10px 14px; gap:10px; }
-  .brand-title { font-size:10px; }
-  .brand-subtitle { font-size:9px; }
-  .navbar-phone { font-size:11px; padding:6px 10px; }
-
-  /* navbar tinggi otomatis, jadi --navbar-h harus lebih fleksibel */
-  .navbar { position:relative; }
-  .gis-subnav { position:relative; top:0; height:auto; }
-  .gis-subnav-inner { flex-wrap:wrap; padding:10px 14px; gap:8px; }
-  .gis-subnav-name { font-size:12px; }
-  .gis-subnav-sub  { font-size:9px; }
-  .nav-pill { font-size:9px; padding:3px 8px; }
-
-  .main {
-    flex-direction: column;
-    margin-top: 0;
-    height: auto;
-  }
-  .sb {
-    width: 100%;
-    max-height: 55vh;
-    border-right: none;
-    border-bottom: 1px solid var(--g150);
-    order: 2;
-  }
-  .map-wrap {
-    width: 100%;
-    height: 50vh;
-    order: 1;
-  }
-}
 
 
 /* ── SIDEBAR ── */
@@ -429,6 +389,50 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
 .modal-legend { display:flex; gap:16px; justify-content:center; font-size:11px; color:var(--g500) }
 .modal-leg-item { display:flex; align-items:center; gap:6px }
 .modal-leg-line { width:24px; height:2px; border-radius:1px }
+
+/* ── MOBILE / RESPONSIVE ── */
+@media (max-width: 860px) {
+  .navbar-menu {
+    position:absolute; top:100%; left:0; right:0; flex-direction:column;
+    background:#fff; padding:10px 20px; gap:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08); display:none; z-index:2200;
+  }
+  .navbar-menu.open { display:flex; }
+  .hamburger { display:block; }
+
+  .navbar-container { flex-wrap:wrap; padding:10px 14px; gap:10px; }
+  .brand-title { font-size:10px; }
+  .brand-subtitle { font-size:9px; }
+  .navbar-phone { font-size:11px; padding:6px 10px; }
+
+  .navbar { position:relative; }
+  .gis-subnav { position:relative; top:0; height:auto; }
+  .gis-subnav-inner { flex-wrap:wrap; padding:10px 14px; gap:8px; }
+  .gis-subnav-name { font-size:12px; }
+  .gis-subnav-sub  { font-size:9px; }
+  .nav-pill { font-size:9px; padding:3px 8px; }
+
+  .main {
+    flex-direction: column !important;
+    margin-top: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+  .sb {
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    max-height: 55vh;
+    border-right: none;
+    border-bottom: 1px solid var(--g150);
+    order: 2;
+  }
+  .map-wrap {
+    width: 100% !important;
+    flex: none !important;
+    height: 50vh !important;
+    order: 1;
+  }
+}
 </style>
 </head>
 <body>
