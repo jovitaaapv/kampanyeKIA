@@ -40,7 +40,7 @@ function Klangon() {
       <section className="detail-hero">
         <div className="container">
           <div className="detail-meta">
-            <span>🕒 13 Oktober 2025</span>
+            <span>🕒 12 Oktober 2025</span>
             <span>📍 Balai Kelurahan Klangon</span>
             <span>👤 3 Petugas</span>
           </div>

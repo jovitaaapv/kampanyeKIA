@@ -42,7 +42,7 @@ function LedokKulon() {
           <div className="detail-meta">
             <span>🕒 04 Oktober 2025</span>
             <span>📍 Balai Kelurahan Ledak Kulon</span>
-            <span>👤 2 Petugas</span>
+            <span>👤 3 Petugas</span>
           </div>
           <h1 className="detail-title">Jemput Bola Perekaman KIA Ledok Kulon, Bojonegoro</h1>
         </div>
