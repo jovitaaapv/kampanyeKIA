@@ -98,7 +98,7 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
 }
 .gis-subnav-title { display:flex; align-items:center; gap:12px; }
 .gis-subnav-inner {
-  height:100%; display:flex; align-items:center; gap:12px; padding:0 18px;
+  height:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 18px;
 }
 .gis-subnav-icon {
   width:34px; height:34px;
@@ -109,58 +109,9 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
 }
 .gis-subnav-name { font-size:13px; font-weight:700; color:#fff; letter-spacing:-.1px }
 .gis-subnav-sub  { font-size:10px; color:rgba(255,255,255,.55); margin-top:1px; font-family:'JetBrains Mono',monospace }
-.gis-subnav .nav-links { display:flex; gap:2px; margin-left:20px }
-.gis-subnav .nav-link  {
-  padding:5px 11px; color:rgba(255,255,255,.65); font-size:12px; font-weight:600;
-  border-radius: var(--r); cursor:pointer; transition:all .15s;
-}
-.gis-subnav .nav-link:hover  { color:#fff; background:rgba(255,255,255,.1) }
-.gis-subnav .nav-link.active { color:#fff; background:rgba(255,255,255,.18) }
 
-@media (max-width: 860px) {
-  .navbar-menu {
-    position:absolute; top:100%; left:0; right:0; flex-direction:column;
-    background:#fff; padding:10px 20px; gap:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08); display:none;
-  }
-  .navbar-menu.open { display:flex; }
-  .hamburger { display:block; }
-  .gis-subnav-inner { flex-wrap:wrap; height:auto; padding:8px 18px; }
-  .gis-subnav { height:auto; }
-}
-
-/* ── NAV (deprecated, kept for safety) ── */
-.nav {
-  height: var(--nav);
-  background: linear-gradient(135deg, var(--rose3) 0%, var(--rose2) 50%, var(--rose) 100%);
-  display: flex; align-items: center; padding: 0 18px; gap: 12px;
-  position: fixed; top:0; left:0; right:0; z-index:2000;
-  box-shadow: 0 2px 20px rgba(190,24,93,.3);
-}
-.nav::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-}
-.nav-logo {
-  width:34px; height:34px;
-  background: rgba(255,255,255,.15);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: var(--r); display:flex; align-items:center; justify-content:center;
-  font-size:16px; flex-shrink:0; backdrop-filter:blur(4px);
-  transition: all .2s;
-}
-.nav-logo:hover { background: rgba(255,255,255,.25); }
-.nav-title { font-size:13px; font-weight:700; color:#fff; letter-spacing:-.1px }
-.nav-sub   { font-size:10px; color:rgba(255,255,255,.55); margin-top:1px; font-family:'JetBrains Mono',monospace }
-.nav-sep   { width:1px; height:26px; background:rgba(255,255,255,.15); margin:0 6px }
-.nav-links { display:flex; gap:2px }
-.nav-link  {
-  padding:5px 11px; color:rgba(255,255,255,.65); font-size:12px; font-weight:600;
-  border-radius: var(--r); cursor:pointer; transition:all .15s;
-}
-.nav-link:hover  { color:#fff; background:rgba(255,255,255,.1) }
-.nav-link.active { color:#fff; background:rgba(255,255,255,.18) }
-.nav-right { margin-left:auto; display:flex; align-items:center; gap:8px }
+.pulse { width:5px; height:5px; border-radius:50%; background:#FDE68A; animation:pulse 2s infinite }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
 .nav-pill  {
   background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.2);
@@ -168,12 +119,54 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
   padding:3px 10px; border-radius:var(--r-full);
   display:flex; align-items:center; gap:5px;
   font-family:'JetBrains Mono',monospace;
+  white-space:nowrap;
 }
-.pulse { width:5px; height:5px; border-radius:50%; background:#FDE68A; animation:pulse 2s infinite }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
 
 /* ── LAYOUT ── */
 .main { margin-top:calc(var(--navbar-h) + var(--nav)); height:calc(100vh - var(--navbar-h) - var(--nav)); display:flex }
+
+/* ── MOBILE / RESPONSIVE ── */
+@media (max-width: 860px) {
+  .navbar-menu {
+    position:absolute; top:100%; left:0; right:0; flex-direction:column;
+    background:#fff; padding:10px 20px; gap:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08); display:none; z-index:2200;
+  }
+  .navbar-menu.open { display:flex; }
+  .hamburger { display:block; }
+
+  .navbar-container { flex-wrap:wrap; padding:10px 14px; gap:10px; }
+  .brand-title { font-size:10px; }
+  .brand-subtitle { font-size:9px; }
+  .navbar-phone { font-size:11px; padding:6px 10px; }
+
+  /* navbar tinggi otomatis, jadi --navbar-h harus lebih fleksibel */
+  .navbar { position:relative; }
+  .gis-subnav { position:relative; top:0; height:auto; }
+  .gis-subnav-inner { flex-wrap:wrap; padding:10px 14px; gap:8px; }
+  .gis-subnav-name { font-size:12px; }
+  .gis-subnav-sub  { font-size:9px; }
+  .nav-pill { font-size:9px; padding:3px 8px; }
+
+  .main {
+    flex-direction: column;
+    margin-top: 0;
+    height: auto;
+  }
+  .sb {
+    width: 100%;
+    max-height: 55vh;
+    border-right: none;
+    border-bottom: 1px solid var(--g150);
+    order: 2;
+  }
+  .map-wrap {
+    width: 100%;
+    height: 50vh;
+    order: 1;
+  }
+}
+
 
 /* ── SIDEBAR ── */
 .sb {
@@ -451,13 +444,12 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
       </div>
     </div>
     <ul class="navbar-menu" id="navbarMenu">
-    <li><a href="/kampanyeKIA/#/">Home</a></li>
-    <li><a href="/kampanyeKIA/GIS/webgis.html" class="active-nav">GIS</a></li>
-    <li><a href="/kampanyeKIA/#/berkas">Berkas</a></li>
-    <li><a href="/kampanyeKIA/#/profil">Profil</a></li>
-    <li><a href="/kampanyeKIA/#/tentang">Tentang</a></li>
+      <li><a href="/kampanyeKIA/#/">Home</a></li>
+      <li><a href="/kampanyeKIA/GIS/webgis.html" class="active-nav">GIS</a></li>
+      <li><a href="/kampanyeKIA/#/berkas">Berkas</a></li>
+      <li><a href="/kampanyeKIA/#/profil">Profil</a></li>
+      <li><a href="/kampanyeKIA/#/tentang">Tentang</a></li>
     </ul>
-    
     <a href="tel:08063881996" class="navbar-phone">📞 (0863) 881996</a>
     <button class="hamburger" onclick="document.getElementById('navbarMenu').classList.toggle('open')">☰</button>
   </div>
@@ -473,11 +465,9 @@ html, body { height:100%; font-family:'Plus Jakarta Sans',sans-serif; background
         <div class="gis-subnav-sub">Dinas Kependudukan dan Pencatatan Sipil</div>
       </div>
     </div>
-    <div class="nav-right">
-      <div class="nav-pill">
-        <div class="pulse"></div>
-        Prediksi 2026–2028 Aktif
-      </div>
+    <div class="nav-pill">
+      <div class="pulse"></div>
+      Prediksi 2026–2028 Aktif
     </div>
   </div>
 </div>
