@@ -67,7 +67,7 @@ function TentangPage() {
       >
         <div className="hero-overlay"></div>
         <div className="container">
-          <h1 className="detail-title">Profil Dinas Kependudukan Dan Pencatatan Sipil (Dispendukcapil) Kabupaten Bojonegoro</h1>
+          <h1 className="detail-title">Tentang Website Ini</h1>
           <div className="detail-meta">
             <span>🕒 Pelayanan Setiap Hari Kerja</span>
             <span>📍 Jl. Patimura 26 A, Bojonegoro</span>
